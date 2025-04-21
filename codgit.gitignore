@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+env/
+venv/
+bout-sape/
+.bout-sape/
+.env
+staticfiles/
+media/
+Thumbs.db 
+.vscode/
+*.log
