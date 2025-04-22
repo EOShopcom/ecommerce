@@ -101,6 +101,26 @@
 
         $('#items').val(JSON.stringify(panier));
 
+        // Construire la liste des articles pour GA4
+        const ga_items = Object.entries(panier).map(([id, [quantite, nom, prixTotal]]) => {
+          const prixUnitaire = prixTotal / quantite;
+          return {
+            item_id: id,
+            item_name: nom,
+            quantity: quantite,
+            price: prixUnitaire
+          };
+        });
+
+        const totalValue = ga_items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+        // Envoyer l'événement GA4
+        gtag('event', 'begin_checkout', {
+          currency: 'EUR',
+          value: totalValue,
+          items: ga_items
+        });
+
 
     </script>
 

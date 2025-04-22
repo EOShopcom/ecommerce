@@ -83,6 +83,18 @@
                 panier[item_id] = [quantite, nom, prix];
                 
             }
+
+            // Événement Google Analytics
+            gtag('event', 'add_to_cart', {
+                currency: 'EUR',
+                value: prix,
+                items: [{
+                    item_id: item_id,
+                    item_name: nom,
+                    quantity: quantite
+                }]
+            });
+
             console.log(panier);
             localStorage.setItem('panier', JSON.stringify(panier));
             document.getElementById('panier').innerHTML = "Panier(" + Object.keys(panier).length + ")";

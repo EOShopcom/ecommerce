@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from decouple import config, Csv
 from pathlib import Path
 import os 
 import django_heroku
@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-y#$fib!!cqmcu^0!jln1_iwbkt_nv1awj3w60egr0g+21%1=&t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://shopping-tp2j.onrender.com']
 
 
 # Application definition
